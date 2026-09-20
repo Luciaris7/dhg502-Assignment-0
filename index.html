@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《明史·卷一》文本分析</title>
+<style>
+  :root{
+    --ink:#2b2b2b;
+    --paper:#f7f4ec;
+    --card:#ffffff;
+    --red:#8b2e2e;
+    --gold:#b8860b;
+    --muted:#6b6b6b;
+    --line:#e5ddcc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Songti SC","Noto Serif SC","STSong","SimSun",serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    padding:24px 12px 60px;
+  }
+  .wrap{max-width:900px;margin:0 auto;}
+  header{
+    text-align:center;
+    padding:28px 16px 22px;
+    border-bottom:3px double var(--red);
+    margin-bottom:28px;
+  }
+  header h1{font-size:30px;letter-spacing:6px;color:var(--red);}
+  header p{color:var(--muted);margin-top:8px;font-size:14px;letter-spacing:2px;}
+  h2{
+    font-size:20px;color:var(--red);
+    border-left:6px solid var(--red);
+    padding-left:12px;margin:34px 0 14px;
+    letter-spacing:3px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px 20px;
+    box-shadow:0 1px 4px rgba(0,0,0,.05);
+  }
+  /* 高频词 */
+  .freq-item{
+    display:flex;align-items:center;gap:10px;
+    padding:5px 0;
+  }
+  .freq-item .word{width:110px;font-weight:bold;flex-shrink:0;}
+  .freq-item .bar-track{
+    flex:1;height:14px;background:#efe9db;border-radius:7px;overflow:hidden;
+  }
+  .freq-item .bar{
+    height:100%;background:linear-gradient(90deg,var(--red),#c05555);
+    border-radius:7px;
+  }
+  .freq-item .num{width:52px;text-align:right;color:var(--muted);font-size:13px;flex-shrink:0;}
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px;}
+  /* 人物表 */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{background:#f2ecdd;color:var(--red);letter-spacing:1px;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tag{
+    display:inline-block;background:#f4e3e3;color:var(--red);
+    border-radius:4px;padding:1px 8px;font-size:12px;margin-right:4px;
+  }
+  .sub{
+    margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);
+  }
+  .sub h3{font-size:15.5px;color:var(--gold);margin-bottom:8px;letter-spacing:2px;}
+  .sub li{margin-left:20px;font-size:14px;}
+  /* 结论 */
+  .conclusion{
+    background:#fffaf0;
+    border-left:6px solid var(--gold);
+  }
+  .conclusion li{margin:6px 0 6px 20px;font-size:15px;}
+  .conclusion strong{color:var(--red);}
+  footer{
+    text-align:center;color:var(--muted);font-size:12px;
+    margin-top:36px;letter-spacing:1px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>《明史 · 卷一》文本分析</h1>
+    <p>太祖本紀（節選）：朱元璋起兵至定鼎應天</p>
+  </header>
+
+  <!-- ============ 一、高频词 ============ -->
+  <h2>一、高頻詞統計</h2>
+  <div class="card">
+    <div class="freq-item"><span class="word">太祖（朱元璋）</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span class="num">約30次</span></div>
+    <div class="freq-item"><span class="word">子興（郭子興）</span><div class="bar-track"><div class="bar" style="width:42%"></div></div><span class="num">約12次</span></div>
+    <div class="freq-item"><span class="word">元兵／元將</span><div class="bar-track"><div class="bar" style="width:36%"></div></div><span class="num">約10次</span></div>
+    <div class="freq-item"><span class="word">諸將</span><div class="bar-track"><div class="bar" style="width:21%"></div></div><span class="num">約6次</span></div>
+    <div class="freq-item"><span class="word">彭大 · 趙均用</span><div class="bar-track"><div class="bar" style="width:21%"></div></div><span class="num">各約6次</span></div>
+    <div class="freq-item"><span class="word">集慶</span><div class="bar-track"><div class="bar" style="width:18%"></div></div><span class="num">約5次</span></div>
+    <div class="freq-item"><span class="word">太平</span><div class="bar-track"><div class="bar" style="width:18%"></div></div><span class="num">約5次</span></div>
+    <div class="freq-item"><span class="word">蠻子海牙</span><div class="bar-track"><div class="bar" style="width:18%"></div></div><span class="num">約5次</span></div>
+    <div class="freq-item"><span class="word">埜先（陳埜先）</span><div class="bar-track"><div class="bar" style="width:18%"></div></div><span class="num">約5次</span></div>
+    <div class="freq-item"><span class="word">德崖（孫德崖）</span><div class="bar-track"><div class="bar" style="width:18%"></div></div><span class="num">約5次</span></div>
+    <div class="freq-item"><span class="word">滁 · 渡江</span><div class="bar-track"><div class="bar" style="width:14%"></div></div><span class="num">各約4次</span></div>
+    <div class="freq-item"><span class="word">徐達 · 士誠</span><div class="bar-track"><div class="bar" style="width:11%"></div></div><span class="num">各約3次</span></div>
+    <p class="note">※ 頻次依節選文本人工統計，為約數。可見叙事核心是「太祖」的軍事行動，地理關鍵詞（濠州→滁、和→太平→集慶）勾勒出渡江略地的進軍路線。</p>
+  </div>
+
+  <!-- ============ 二、主要人物 ============ -->
+  <h2>二、主要人物與官職</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>人物</th><th>身份 / 官職</th><th>事略</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag">主角</span>朱元璋</td><td>高皇帝（廟號太祖）</td><td>皇覺寺僧出身 → 郭子興親兵 → 鎮撫 → 元帥；後自領太平興國翼元帥府事</td></tr>
+        <tr><td><span class="tag">伯主</span>郭子興</td><td>濠州起義首領</td><td>奇其狀貌留為親兵，以養女馬氏妻之</td></tr>
+        <tr><td><span class="tag">后妃</span>馬氏</td><td>高皇后</td><td>子興所撫馬公之女</td></tr>
+        <tr><td><span class="tag">名將</span>徐達、湯和、費聚、鄧愈、常遇春、耿再成</td><td>開國將領</td><td>南略定遠、牛渚先登、太平會戰等</td></tr>
+        <tr><td><span class="tag">謀士</span>李善長</td><td>定遠儒士</td><td>「與語大悅」，後成開國元勳</td></tr>
+        <tr><td><span class="tag">水軍</span>廖永安、俞通海</td><td>巢湖帥</td><td>以水軍千艘來附，助渡江</td></tr>
+        <tr><td><span class="tag">文臣</span>陶安、李習、夏煜、孫炎、楊憲</td><td>參幕府事 / 知府 / 辟士</td><td>克太平、入集慶後禮用賢士</td></tr>
+        <tr><td><span class="tag">同僚</span>郭天敘、張天祐</td><td>都元帥 / 副元帥</td><td>攻集慶戰死，部眾盡歸太祖</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sub">
+      <h3>敵對陣營（元朝方面）</h3>
+      <ul>
+        <li><b>脫脫</b> —— 元丞相，大敗張士誠於高郵，旋「中讒」解除兵柄</li>
+        <li><b>蠻子海牙</b> —— 元中丞，扼銅城閘諸隘，兵敗遁歸張士誠</li>
+        <li><b>福壽</b> —— 元御史大夫，守集慶力戰死</li>
+        <li><b>阿魯灰</b>（右丞）、<b>徹里不花</b>（元將）、<b>賈魯</b>、<b>張知院</b>、<b>絆住馬</b>（樞密副使）、<b>禿堅</b>（太子）、<b>納哈出</b>（萬戶）、<b>靳義</b>（總管，殉元，太祖禮葬）</li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <h3>元末群雄（割據勢力）</h3>
+      <ul>
+        <li><b>劉福通、韓山童、韓林兒</b> —— 紅巾軍，奉「宋」號，建元龍鳳</li>
+        <li><b>徐壽輝</b> —— 僭帝號起蘄；<b>方國珍</b> —— 先起海上；<b>張士誠</b> —— 據高郵</li>
+        <li><b>彭大、趙均用、李二、孫德崖</b> —— 起徐州／濠州諸帥</li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <h3>本卷中的「奸邪 / 反面」人物</h3>
+      <ul>
+        <li><b>陳埜先</b>（民兵元帥）—— 被擒復叛，致郭天敘、張天祐戰死，終為民兵所殺</li>
+        <li><b>徹里不花</b>（元將）—— 憚不敢攻，「日俘良民以邀賞」</li>
+        <li><b>蠻子海牙</b>（元中丞）—— 屡扼險要、圍攻太平</li>
+        <li><b>進讒者</b>（不具名）—— 讒害脫脫，致「江、淮亂益熾」</li>
+      </ul>
+      <p class="note">※ 本節選尚處元末，明朝未立，故無典型朝中「奸臣」；反面人物多為元吏、叛將與割據者。</p>
+    </div>
+  </div>
+
+  <!-- ============ 三、结论 ============ -->
+  <h2>三、簡短結論</h2>
+  <div class="card conclusion">
+    <ul>
+      <li><strong>崛起軌跡：</strong>朱元璋由孤苦行僧，投身郭子興，繼而自立，兩年內連取滁、和、太平、集慶（改應天府），完成渡江立基。</li>
+      <li><strong>成功要因：</strong>一在<strong>軍紀嚴明</strong>（「揭榜禁剽掠」「斬以徇」），二在<strong>安民納賢</strong>（縱還掠婦、禮用陶安李善長等），三在<strong>機斷果決</strong>（斷舟纜絕歸心、拒受韓林兒官職而借其年號）。</li>
+      <li><strong>時代背景：</strong>元政不綱、群雄並起，脫脫遭讒去職使元軍失去中樞，客觀上為太祖開拓掃清障礙。</li>
+      <li><strong>筆法特點：</strong>本紀以編年繫事，兼用「紅光滿室、奇骨貫頂」等祥瑞筆法渲染天命，但主體仍以紀律、民心與用人等人事努力解釋開基之業。</li>
+    </ul>
+  </div>
+
+  <footer>《明史·卷一 太祖本紀》節選文本分析 · 僅供研習參考</footer>
+</div>
+</body>
+</html>
